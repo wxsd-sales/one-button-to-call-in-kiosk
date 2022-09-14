@@ -113,7 +113,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		align-self: end;
+		align-self: flex-end;
 		cursor: pointer;
 	}
 
