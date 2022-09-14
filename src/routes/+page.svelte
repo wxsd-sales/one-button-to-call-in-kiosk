@@ -4,13 +4,25 @@
 	import logo from '../assets/logo.jpeg';
 	import applications from '../applications';
 	import BoopAction from '../animation/BoopAction.svelte';
+	import { browser } from '$app/environment';
 
 	let URL = null;
-	export const prerender = true;
+	let iframeWidth;
+	let buttonMargin;
 
 	const onSelect = (url) => {
 		URL = url;
 	};
+
+	if (browser) {
+		if (window.navigator.userAgent.includes('RoomOS; Cisco Webex Desk Pro')) {
+			iframeWidth = '120rem';
+			buttonMargin = '9.55rem';
+		} else {
+			iframeWidth = '110rem';
+			buttonMargin = '8.75rem';
+		}
+	}
 </script>
 
 <div class="app">
@@ -38,9 +50,10 @@
 				{/each}
 			</div>
 		{:else}
-			<div class="iframe">
+			<div class="iframe" style={`width: ${iframeWidth}`}>
 				<div
 					class="is-translucent-black close-button"
+					style={`margin-right: ${buttonMargin}`}
 					on:click={() => {
 						URL = null;
 					}}
@@ -76,7 +89,6 @@
 		display: flex;
 		position: relative;
 		height: 70%;
-		width: 110rem;
 		justify-content: center;
 		align-items: center;
 		opacity: 0.8;
@@ -102,7 +114,6 @@
 		justify-content: center;
 		align-items: center;
 		align-self: end;
-		margin-right: 8.75rem;
 		cursor: pointer;
 	}
 
