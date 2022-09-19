@@ -16,26 +16,26 @@ export default [
   },
   {
     "title": "Concierge",
-    "subtitle": "Reserve a room or desk to work",
+    "subtitle": "Lorem ipsum dolor sit amet",
     "imgUrl": concierge,
     "avatarUrl": "account-tie-woman",
     "url": "https://templates.demo.place.tech/concierge/#/day-view?zone_ids=bld-01_lvl-01",
-    "description": "View space availability and reserve desks and rooms on the interactive map"
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
   },
   {
     "title": "Office Map",
-    "subtitle": "Reserve a room or desk to work",
+    "subtitle": "Lorem ipsum dolor sit amet",
     "imgUrl": office,
     "avatarUrl": "map-marker-account-outline",
     "url": "https://templates.demo.place.tech/map-kiosk/#/explore",
-    "description": "Main booking tool for employees and agency employees"
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
   },
   {
     "title": "Booking",
-    "subtitle": "Reserve a room or desk to work",
+    "subtitle": "Lorem ipsum dolor sit amet",
     "imgUrl": booking,
     "avatarUrl": "calendar-account-outline",
     "url": "https://templates.demo.place.tech/booking-panel/#/panel/space-0",
-    "description": "Main booking tool for employees and agency employees"
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
   }
 ]
