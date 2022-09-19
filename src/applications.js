@@ -20,7 +20,7 @@ export default [
     "imgUrl": concierge,
     "avatarUrl": "account-tie-woman",
     "url": "https://templates.demo.place.tech/concierge/#/day-view?zone_ids=bld-01_lvl-01",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
   },
   {
     "title": "Office Map",
@@ -28,7 +28,7 @@ export default [
     "imgUrl": office,
     "avatarUrl": "map-marker-account-outline",
     "url": "https://templates.demo.place.tech/map-kiosk/#/explore",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
   },
   {
     "title": "Booking",
@@ -36,6 +36,6 @@ export default [
     "imgUrl": booking,
     "avatarUrl": "calendar-account-outline",
     "url": "https://templates.demo.place.tech/booking-panel/#/panel/space-0",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
   }
 ]
