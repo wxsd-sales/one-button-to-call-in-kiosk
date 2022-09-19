@@ -121,7 +121,7 @@
 		display: flex;
 		align-items: center;
 		height: 8rem;
-		margin-bottom: 2rem;
+		margin-bottom: 6rem;
 		width: 100%;
 		position: relative;
 	}
