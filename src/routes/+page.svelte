@@ -5,29 +5,19 @@
 	import applications from '../applications';
 	import BoopAction from '../animation/BoopAction.svelte';
 	import { browser } from '$app/environment';
+	import QA from '../components/Q&A.svelte';
+	import listItems from '../faq';
 
-	let URL = null;
-	let iframeWidth;
-	let buttonMargin;
+	let URL = 'NO-URL';
 
 	const onSelect = (url) => {
 		URL = url;
 	};
-
-	if (browser) {
-		if (window.navigator.userAgent.includes('RoomOS; Cisco Webex Desk Pro')) {
-			iframeWidth = '120rem';
-			buttonMargin = '9.55rem';
-		} else {
-			iframeWidth = '110rem';
-			buttonMargin = '8.75rem';
-		}
-	}
 </script>
 
 <div class="app">
 	<div class="bg-image" />
-	<div class="contnet">
+	<div class="contnet" style="width: 100%">
 		<div class="header is-translucent-black pl-2">
 			<figure
 				class="image is-128x128 mr-4 logo"
@@ -49,11 +39,10 @@
 					</div>
 				{/each}
 			</div>
-		{:else}
-			<div class="iframe" style={`width: ${iframeWidth}`}>
+		{:else if URL !== 'NO-URL'}
+			<div class="iframe">
 				<div
 					class="is-translucent-black close-button"
-					style={`margin-right: ${buttonMargin}`}
 					on:click={() => {
 						URL = null;
 					}}
@@ -63,6 +52,25 @@
 					</span>
 				</div>
 				<iframe src={URL} />
+			</div>
+		{:else}
+			<div class="QA">
+				<div
+					class="is-translucent-black close-button"
+					on:click={() => {
+						URL = null;
+					}}
+				>
+					<span class="icon has-text-danger">
+						<i class="mdi mdi-48px mdi-close" />
+					</span>
+				</div>
+				<div class="box is-translucent-black" style="border-radius: 0;">
+					{#each listItems as { question, answer }, i}
+						<QA {question} {answer} />
+					{/each}
+					<QA />
+				</div>
 			</div>
 		{/if}
 		<div class="footer has-text-weight-medium has-text-light">
@@ -84,6 +92,12 @@
 		height: 90px;
 	}
 
+	.QA {
+		display: flex;
+		flex-direction: column;
+		margin: 4rem 10rem;
+		position: relative;
+	}
 	.iframe {
 		z-index: 1;
 		display: flex;
@@ -91,8 +105,8 @@
 		height: 70%;
 		justify-content: center;
 		align-items: center;
-		opacity: 0.8;
-		margin-top: 3rem;
+		opacity: 1;
+		margin: 4rem 10rem 1rem 10rem;
 		flex-direction: column;
 	}
 
@@ -103,7 +117,7 @@
 		background-color: transparent;
 		display: flex;
 		justify-content: flex-end;
-		padding-right: 6rem;
+		padding-right: 3rem;
 		padding-bottom: 0;
 	}
 
@@ -121,7 +135,6 @@
 		display: flex;
 		align-items: center;
 		height: 8rem;
-		margin-bottom: 6rem;
 		width: 100%;
 		position: relative;
 	}
