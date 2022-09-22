@@ -7,10 +7,6 @@
     "file": "_app/immutable/assets/concierge-b47a2a0e.jpeg",
     "src": "src/assets/concierge.jpeg"
   },
-  "src/assets/booking.png": {
-    "file": "_app/immutable/assets/booking-9e3effff.png",
-    "src": "src/assets/booking.png"
-  },
   "src/assets/office.jpeg": {
     "file": "_app/immutable/assets/office-0f8435bd.jpeg",
     "src": "src/assets/office.jpeg"
@@ -18,6 +14,10 @@
   "src/assets/workPlace.jpeg": {
     "file": "_app/immutable/assets/workPlace-bf8d8289.jpeg",
     "src": "src/assets/workPlace.jpeg"
+  },
+  "src/assets/tour.jpeg": {
+    "file": "_app/immutable/assets/tour-d3de98b9.jpeg",
+    "src": "src/assets/tour.jpeg"
   },
   "src/assets/GSA.jpeg": {
     "file": "_app/immutable/assets/GSA-e2942604.jpeg",
@@ -40,12 +40,12 @@
     "src": "node_modules/@mdi/font/fonts/materialdesignicons-webfont.ttf"
   },
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "_app/immutable/start-c89b4583.js",
+    "file": "_app/immutable/start-f2fcb43d.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_index-f39b6267.js",
-      "_singletons-b6fff157.js"
+      "_singletons-16c8d6de.js"
     ],
     "dynamicImports": [
       ".svelte-kit/generated/nodes/0.js",
@@ -62,16 +62,16 @@
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "_app/immutable/components/error.svelte-07a761c2.js",
+    "file": "_app/immutable/components/error.svelte-d72d1506.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-f39b6267.js",
-      "_singletons-b6fff157.js"
+      "_singletons-16c8d6de.js"
     ]
   },
   "src/routes/+page.svelte": {
-    "file": "_app/immutable/components/pages/_page.svelte-055fa5ab.js",
+    "file": "_app/immutable/components/pages/_page.svelte-64bfa6b0.js",
     "src": "src/routes/+page.svelte",
     "isEntry": true,
     "imports": [
@@ -79,14 +79,14 @@
       "_index-2dee0531.js"
     ],
     "css": [
-      "_app/immutable/assets/_page-7ba50f6d.css"
+      "_app/immutable/assets/_page-f705696c.css"
     ],
     "assets": [
       "_app/immutable/assets/logo-772af4b6.jpeg",
       "_app/immutable/assets/workPlace-bf8d8289.jpeg",
       "_app/immutable/assets/concierge-b47a2a0e.jpeg",
       "_app/immutable/assets/office-0f8435bd.jpeg",
-      "_app/immutable/assets/booking-9e3effff.png",
+      "_app/immutable/assets/tour-d3de98b9.jpeg",
       "_app/immutable/assets/materialdesignicons-webfont-861aea05.eot",
       "_app/immutable/assets/materialdesignicons-webfont-e52d60f6.woff2",
       "_app/immutable/assets/materialdesignicons-webfont-48d3eec6.woff",
@@ -94,8 +94,8 @@
       "_app/immutable/assets/GSA-e2942604.jpeg"
     ]
   },
-  "_singletons-b6fff157.js": {
-    "file": "_app/immutable/chunks/singletons-b6fff157.js",
+  "_singletons-16c8d6de.js": {
+    "file": "_app/immutable/chunks/singletons-16c8d6de.js",
     "imports": [
       "_index-2dee0531.js"
     ]
@@ -118,7 +118,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "_app/immutable/chunks/1-9d927dbc.js",
+    "file": "_app/immutable/chunks/1-6e11b069.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -126,7 +126,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/2.js": {
-    "file": "_app/immutable/chunks/2-f176c240.js",
+    "file": "_app/immutable/chunks/2-caccfca3.js",
     "src": ".svelte-kit/generated/nodes/2.js",
     "isDynamicEntry": true,
     "imports": [
@@ -134,7 +134,7 @@
     ]
   },
   "src/routes/+page.css": {
-    "file": "_app/immutable/assets/_page-7ba50f6d.css",
+    "file": "_app/immutable/assets/_page-f705696c.css",
     "src": "src/routes/+page.css"
   }
 }
