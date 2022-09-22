@@ -1,7 +1,7 @@
 import workPlace from './assets/workPlace.jpeg';
 import concierge from './assets/concierge.jpeg';
 import office from './assets/office.jpeg';
-import booking from './assets/booking.png';
+import tour from './assets/tour.jpeg';
 
 
 
@@ -11,7 +11,7 @@ export default [
     "subtitle": "Reserve a room or desk to work",
     "imgUrl": workPlace,
     "avatarUrl": "chair-rolling",
-    "url": "https://templates.demo.place.tech/workplace/#/dashboard",
+    "url": " https://templates.demo.place.tech/booking-panel/#/panel/space-0",
     "description": "View space availability and reserve desks and rooms on the interactive map"
   },
   {
@@ -19,15 +19,15 @@ export default [
     "subtitle": "Lorem ipsum dolor sit amet",
     "imgUrl": office,
     "avatarUrl": "map-marker-account-outline",
-    "url": "https://templates.demo.place.tech/map-kiosk/#/explore",
+    "url": "https://workspaces.dnaspaces.io/?token=fdf320ef-1aae-4479-b638-3dd823f9e4bb#/dashboard",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
   },
   {
-    "title": "Booking",
+    "title": "Take a Tour",
     "subtitle": "Lorem ipsum dolor sit amet",
-    "imgUrl": booking,
-    "avatarUrl": "calendar-account-outline",
-    "url": "https://templates.demo.place.tech/booking-panel/#/panel/space-0",
+    "imgUrl": tour,
+    "avatarUrl": "account-tie-hat",
+    "url": "https://www.youtube.com/embed/GTg3lMlKXH4",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
   },
   {

@@ -10,6 +10,9 @@
 	let messageIsSent = false;
 	let name;
 
+	const lobbyAmbassadorID = new URLSearchParams(window.location.search).has('lobbyAmbassadorID');
+	const deviceSIPAddress = new URLSearchParams(window.location.search).has('deviceSIPAddress');
+
 	const toggleModal = () => {
 		displayModal = !displayModal;
 
@@ -29,7 +32,7 @@
 	const send = async () => {
 		disabled = true;
 		messageIsSending = true;
-		await sendMessage(new Date().toLocaleTimeString(), name, 'tel:deviceID');
+		await sendMessage(new Date().toLocaleTimeString(), name, 'akoushke@cisco.com');
 		messageIsSending = false;
 		messageIsSent = true;
 	};
@@ -47,8 +50,10 @@
 	onMount(async () => {
 		person = await getPersonDetails(
 			'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
+			// 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS9jZWEyODQwZi01NjBiLTQxMGEtOTA2Mi0yMmVjYzJhMjBmM2U'
 		);
 	});
+	console.log(person);
 </script>
 
 <nav class="level has-text-white is-size-4">
