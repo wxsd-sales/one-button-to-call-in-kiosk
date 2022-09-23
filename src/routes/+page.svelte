@@ -8,6 +8,7 @@
 	import QA from '../components/Q&A.svelte';
 	import listItems from '../faq';
 	import SensorData from '../components/SensorData.svelte';
+	import innovation from '../assets/innovation.jpeg';
 
 	let URL = null;
 
@@ -19,7 +20,7 @@
 <div class="app is-flex is-flex-direction-column">
 	<div class="bg-image" />
 	<nav
-		class="navbar is-flex is-align-items-center is-translucent-black pl-2 is-transparent pt-4 pb-0"
+		class="navbar is-flex is-align-items-center is-translucent-black pl-4 is-transparent pt-4 pb-2"
 		role="navigation"
 		style="margin-bottom: 1rem;"
 		aria-label="main navigation"
@@ -44,21 +45,13 @@
 				<div class="navbar-item" />
 			</div>
 
-			<div class="navbar-end">
-				<div class="navbar-item has-dropdown is-hoverable">
-					<a class="navbar-link has-text-white"> About </a>
-					<div class="navbar-dropdown is-right textContainer is-translucent-black">
-						<div class="navbar-item is-expanded  ">
-							<div class="has-text-white is-size-6" style="white-space:normal;">
-								The Workplace Innovation Lab (WIL) is the pilot project of GSA’s federal coworking
-								concept. Located at GSA headquarters in Washington, DC, the WIL is a proving ground
-								for federal agencies to test out innovative environments in workplace furnishings
-								and audio visual & technology solutions. The 25,000 SF space is available for
-								periods ranging from a single hour to weeks. Federal employees are able to reserve
-								workspaces and collaborative areas online within six distinct neighborhoods.
-							</div>
-						</div>
-					</div>
+			<div class="navbar-end is-flex is-flex-direction-column">
+				<div class="columns navbar-item p-0">
+					<div class="column has-text-white p-1" style="width: 9rem">New York</div>
+					<div class="column has-text-white p-1">75°</div>
+				</div>
+				<div class="columns navbar-item p-0">
+					<div class="column has-text-white p-1">{new Date().toDateString()}</div>
 				</div>
 			</div>
 		</div>
@@ -110,28 +103,42 @@
 		{/if}
 		{#if URL === null}
 			<div class="customFooter">
-				<div class="box is-translucent-black mb-0" style="margin-left: 4rem;">
-					<p class="subtitle has-text-white mb-4 is-flex is-justify-content-center">Room Metrics</p>
-					<div class="columns">
-						<div class="column">
-							<SensorData title="Air Quality" icon="smoke" value="1" color="danger" />
-							<SensorData title="Humidity" icon="water-percent" value="20%" color="warning" />
-						</div>
-						<div class="column">
-							<SensorData title="Noise" icon="waveform" value="2" color="success" />
-							<SensorData title="Occupancy" icon="account-group" value="2/4" color="success" />
-						</div>
-					</div>
+				<div
+					class="box is-flex is-translucent-black mb-0"
+					style="height: 15rem; margin-left: 4rem;"
+				>
+					<figure class="image">
+						<img src={innovation} style="width: 22rem; height: 12rem;" />
+					</figure>
+					<p
+						class="has-text-white  is-size-5"
+						style="width: 50rem; margin-left: 3rem; text-indent: 1rem; line-height: 2rem;"
+					>
+						<span class="subtitle has-text-weight-bold	 is-size-4 has-text-white"
+							>The Workplace Innovation Lab
+						</span> (WIL) is the pilot project of GSA’s federal coworking concept. Located at GSA headquarters
+						in Washington, DC, the WIL is a proving ground for federal agencies to test out innovative
+						environments in workplace furnishings and audio visual & technology solutions. The 25,000
+						SF space is available for periods ranging from a single hour to weeks. Federal employees
+						are able to reserve workspaces and collaborative areas online within six distinct neighborhoods.
+					</p>
 				</div>
 				<div class="contact has-text-weight-medium has-text-light">
-					<p>
-						Made with <span>
-							<span class="icon has-text-danger">
-								<i class="mdi mdi-heart " />
-							</span>
-						</span>
-						by WXSD team (wxsd@external.cisco.com)
-					</p>
+					<div class="box is-translucent-black mb-0" style="margin-left: 4rem;">
+						<p class="subtitle has-text-white mb-4 is-flex is-justify-content-center">
+							Room Metrics
+						</p>
+						<div class="columns">
+							<div class="column">
+								<SensorData title="Air Quality" icon="smoke" value="1" color="danger" />
+								<SensorData title="Humidity" icon="water-percent" value="20%" color="warning" />
+							</div>
+							<div class="column">
+								<SensorData title="Noise" icon="waveform" value="2" color="success" />
+								<SensorData title="Occupancy" icon="account-group" value="2/4" color="success" />
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		{/if}
