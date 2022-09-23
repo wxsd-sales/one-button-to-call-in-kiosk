@@ -14,6 +14,7 @@
 
 	const onSelect = (url) => {
 		URL = url;
+		console.log(URL);
 	};
 </script>
 
@@ -67,21 +68,7 @@
 					</div>
 				{/each}
 			</div>
-		{:else if URL !== 'NO-URL'}
-			<div class="iframe">
-				<div
-					class="is-translucent-black close-button"
-					on:click={() => {
-						URL = null;
-					}}
-				>
-					<span class="icon has-text-danger">
-						<i class="mdi mdi-48px mdi-close" />
-					</span>
-				</div>
-				<iframe src={URL} />
-			</div>
-		{:else}
+		{:else if URL === 'NO-URL'}
 			<div class="QA">
 				<div
 					class="is-translucent-black close-button"
@@ -142,10 +129,31 @@
 				</div>
 			</div>
 		{/if}
+
+		{#each applications as { url }}
+			{#if url !== 'NO-URL'}
+				<div class="iframe" class:hide={url !== URL}>
+					<div
+						class="is-translucent-black close-button"
+						on:click={() => {
+							URL = null;
+						}}
+					>
+						<span class="icon has-text-danger">
+							<i class="mdi mdi-48px mdi-close" />
+						</span>
+					</div>
+					<iframe src={url} />
+				</div>
+			{/if}
+		{/each}
 	</div>
 </div>
 
 <style>
+	.hide {
+		display: none !important;
+	}
 	.logo {
 		cursor: pointer;
 		height: 90px;
