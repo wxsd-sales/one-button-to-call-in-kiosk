@@ -33,7 +33,7 @@
 	const send = async () => {
 		disabled = true;
 		messageIsSending = true;
-		await sendMessage(new Date().toLocaleTimeString(), name, 'akoushke@cisco.com');
+		await sendMessage(new Date().toLocaleTimeString(), name, deviceSIPAddress);
 		messageIsSending = false;
 		messageIsSent = true;
 	};
@@ -49,16 +49,14 @@
 	};
 
 	onMount(async () => {
-		person = await getPersonDetails(
-			'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
-			// 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS9jZWEyODQwZi01NjBiLTQxMGEtOTA2Mi0yMmVjYzJhMjBmM2U'
-		);
+		person = await getPersonDetails(lobbyAmbassadorID);
+		// 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
+		// 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS9jZWEyODQwZi01NjBiLTQxMGEtOTA2Mi0yMmVjYzJhMjBmM2U'
 
 		interval = setInterval(async () => {
-			person = await getPersonDetails(
-				'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
-				// 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS9jZWEyODQwZi01NjBiLTQxMGEtOTA2Mi0yMmVjYzJhMjBmM2U'
-			);
+			person = await getPersonDetails(lobbyAmbassadorID);
+			// 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
+			// 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS9jZWEyODQwZi01NjBiLTQxMGEtOTA2Mi0yMmVjYzJhMjBmM2U'
 		}, 3000);
 	});
 
