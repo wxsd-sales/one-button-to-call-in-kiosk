@@ -2,6 +2,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { getPersonDetails, sendMessage } from '../lib/webex';
 	import Modal from './Modal.svelte';
+	import { page } from '$app/stores';
 
 	let person;
 	let displayModal = false;
@@ -11,8 +12,8 @@
 	let name;
 	let interval;
 
-	const lobbyAmbassadorID = new URLSearchParams(window.location.search).has('lobbyAmbassadorID');
-	const deviceSIPAddress = new URLSearchParams(window.location.search).has('deviceSIPAddress');
+	const lobbyAmbassadorID = $page.url.searchParams.get('lobbyAmbassadorID');
+	const deviceSIPAddress = $page.url.searchParams.get('deviceSIPAddress');
 
 	const toggleModal = () => {
 		displayModal = !displayModal;
