@@ -1,5 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { getPersonDetails, sendMessage } from '../lib/webex';
 	import Modal from './Modal.svelte';
 
@@ -9,6 +9,7 @@
 	let messageIsSending = false;
 	let messageIsSent = false;
 	let name;
+	let interval;
 
 	const lobbyAmbassadorID = new URLSearchParams(window.location.search).has('lobbyAmbassadorID');
 	const deviceSIPAddress = new URLSearchParams(window.location.search).has('deviceSIPAddress');
@@ -52,8 +53,18 @@
 			'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
 			// 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS9jZWEyODQwZi01NjBiLTQxMGEtOTA2Mi0yMmVjYzJhMjBmM2U'
 		);
+
+		interval = setInterval(async () => {
+			person = await getPersonDetails(
+				'Y2lzY29zcGFyazovL3VzL1BFT1BMRS80N2MzMmQwYi0wNDQ0LTQ2MGQtOGJjZS0yMjY1YjUwMWFhYzU'
+				// 'Y2lzY29zcGFyazovL3VzL1BFT1BMRS9jZWEyODQwZi01NjBiLTQxMGEtOTA2Mi0yMmVjYzJhMjBmM2U'
+			);
+		}, 3000);
 	});
-	console.log(person);
+
+	onDestroy(() => {
+		clearInterval(interval);
+	});
 </script>
 
 <nav class="level has-text-white is-size-4">
