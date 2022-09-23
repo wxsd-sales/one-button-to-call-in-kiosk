@@ -58,7 +58,7 @@
 	</nav>
 	<div class="contnet" style="width: 100%; height: 100%;">
 		{#if URL === null}
-			<div class="columns cards" style="padding: 7rem 4rem 2rem 4rem">
+			<div class="columns cards" style="padding: 2rem 4rem;">
 				{#each applications as { imgUrl, title, subtitle, avatarUrl, description, url }, i}
 					<div class="column">
 						<BoopAction boopParams={{ scale: 1.1, timing: 200 }}>
