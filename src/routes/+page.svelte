@@ -71,14 +71,15 @@
 		{:else if URL === 'NO-URL'}
 			<div class="QA">
 				<div
-					class="is-translucent-black close-button"
+					class="has-background-grey-lighter close-button"
 					on:click={() => {
 						URL = null;
 					}}
 				>
-					<span class="icon has-text-danger">
-						<i class="mdi mdi-48px mdi-close" />
+					<span class="icon has-text-link-dark">
+						<i class="mdi mdi-48px mdi-arrow-left-bold" />
 					</span>
+					<span class="is-size-5 has-text-weight-medium"> Return to Main Menu </span>
 				</div>
 				<div class="box is-translucent-black" style="border-radius: 0;">
 					{#each listItems as { question, answer }, i}
@@ -134,14 +135,15 @@
 			{#if url !== 'NO-URL'}
 				<div class="iframe" class:hide={url !== URL}>
 					<div
-						class="is-translucent-black close-button"
+						class="has-background-grey-lighter close-button"
 						on:click={() => {
 							URL = null;
 						}}
 					>
-						<span class="icon has-text-danger">
-							<i class="mdi mdi-48px mdi-close" />
+						<span class="icon has-text-link-dark">
+							<i class="mdi mdi-48px mdi-arrow-left-bold" />
 						</span>
+						<span class="is-size-5 has-text-weight-medium"> Return to Main Menu </span>
 					</div>
 					<iframe src={url} />
 				</div>
@@ -195,12 +197,13 @@
 
 	.close-button {
 		height: 3rem;
-		width: 3rem;
+		width: 16rem;
 		display: flex;
-		justify-content: center;
-		align-self: flex-end;
+		justify-content: space-evenly;
+		align-self: flex-start;
 		align-items: center;
 		cursor: pointer;
+		margin-bottom: 0.5rem;
 	}
 
 	.textContainer {
