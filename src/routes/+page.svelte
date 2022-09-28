@@ -9,6 +9,10 @@
 	import listItems from '../faq';
 	import SensorData from '../components/SensorData.svelte';
 	import innovation from '../assets/innovation.jpeg';
+	import video from '../assets/GSA-SMALL.mp4';
+	import image from '../assets/GSA.jpeg';
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 
 	let URL = null;
 
@@ -16,10 +20,23 @@
 		URL = url;
 		console.log(URL);
 	};
+
+	const includeVideoBackground = $page.url.searchParams.get('includeVideoBackground') === 'yes';
 </script>
 
 <div class="app is-flex is-flex-direction-column">
-	<div class="bg-image" />
+	<div
+		class="bg-image"
+		style={`background: ${
+			includeVideoBackground ? 'none' : `#fff url(${image}) center top/cover no-repeat;`
+		}`}
+	>
+		{#if includeVideoBackground}
+			<video class="video-background" autoplay loop muted playsinline>
+				<source src={video} />
+			</video>
+		{/if}
+	</div>
 	<nav
 		class="navbar is-flex is-align-items-center is-translucent-black pl-4 is-transparent pt-4 pb-2"
 		role="navigation"
@@ -118,12 +135,17 @@
 						</p>
 						<div class="columns">
 							<div class="column">
-								<SensorData title="Air Quality" icon="smoke" value="1" color="danger" />
+								<SensorData title="Air Quality" icon="smoke" value="3" color="danger" />
 								<SensorData title="Humidity" icon="water-percent" value="20%" color="warning" />
 							</div>
 							<div class="column">
-								<SensorData title="Noise" icon="waveform" value="2" color="success" />
-								<SensorData title="Occupancy" icon="account-group" value="2/4" color="success" />
+								<SensorData title="Noise" icon="waveform" value="30 dBA" color="success" />
+								<SensorData
+									title="Occupancy"
+									icon="account-group"
+									value="21 / 45"
+									color="success"
+								/>
 							</div>
 						</div>
 					</div>
@@ -153,6 +175,11 @@
 </div>
 
 <style>
+	.video-background {
+		width: 100%;
+		height: 100%;
+		background-color: black;
+	}
 	.hide {
 		display: none !important;
 	}
@@ -221,7 +248,6 @@
 	}
 
 	.bg-image {
-		background: #fff url(../assets/GSA.jpeg) center top/cover no-repeat;
 		position: absolute;
 		display: block;
 		height: 100%;

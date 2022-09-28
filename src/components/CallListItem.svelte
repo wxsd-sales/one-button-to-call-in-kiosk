@@ -76,7 +76,7 @@
 			</div>
 		{/if}
 		<div class="level-item">
-			<p>Lobby Ambassador</p>
+			<p>I need to speak with someone</p>
 		</div>
 	</div>
 	<div class="level-right">
@@ -111,7 +111,7 @@
 			{:else}
 				<p>
 					Unfortunately our lobby ambassador is not available at the moment. Please enter your name
-					so we can send a message for them to call you directly here.
+					so we can send a message and have them call you back directly.
 				</p>
 				<div class="field mt-4">
 					<div class="field-label is-normal">
