@@ -8,6 +8,7 @@ import tour from './assets/tour.jpeg';
 export default [
   {
     "title": "Book a Space",
+    "name": "booking",
     "subtitle": "Reserve a room or desk to work",
     "imgUrl": workPlace,
     "avatarUrl": "chair-rolling",
@@ -16,6 +17,7 @@ export default [
   },
   {
     "title": "Office Map",
+    "name": "map",
     "subtitle": "View Floorplan with Environmental Info",
     "imgUrl": office,
     "avatarUrl": "map-marker-account-outline",
@@ -24,6 +26,7 @@ export default [
   },
   {
     "title": "Take a Tour",
+    "name": "youtube",
     "subtitle": "Take a walkthrough of the WIL space",
     "imgUrl": tour,
     "avatarUrl": "account-tie-hat",
@@ -32,6 +35,7 @@ export default [
   },
   {
     "title": "Concierge",
+    "name": "concierge",
     "subtitle": "Contact the WIL Concierge",
     "imgUrl": concierge,
     "avatarUrl": "account-tie-woman",

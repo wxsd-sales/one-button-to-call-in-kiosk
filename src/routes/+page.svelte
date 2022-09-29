@@ -15,6 +15,7 @@
 	import { onMount } from 'svelte';
 
 	let URL = null;
+	let frame;
 
 	const onSelect = (url) => {
 		URL = url;
@@ -160,6 +161,7 @@
 						class="has-background-grey-lighter close-button"
 						on:click={() => {
 							URL = null;
+							frame.src = url;
 						}}
 					>
 						<span class="icon has-text-link-dark">
@@ -167,7 +169,7 @@
 						</span>
 						<span class="is-size-5 has-text-weight-medium"> Return to Main Menu </span>
 					</div>
-					<iframe src={url} />
+					<iframe src={url} bind:this={frame} />
 				</div>
 			{/if}
 		{/each}
