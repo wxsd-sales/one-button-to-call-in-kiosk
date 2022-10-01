@@ -1,42 +1,22 @@
 <script>
 	import '../app.scss';
-	import Card from '../components/card.svelte';
-	import logo from '../assets/logo.jpeg';
-	import applications from '../applications';
-	import BoopAction from '../animation/BoopAction.svelte';
-	import { browser } from '$app/environment';
-	import QA from '../components/Q&A.svelte';
-	import listItems from '../faq';
-	import SensorData from '../components/SensorData.svelte';
-	import innovation from '../assets/innovation.jpeg';
-	import video from '../assets/GSA-SMALL.mp4';
-	import image from '../assets/GSA.jpeg';
+	import logo from '../assets/logo.png';
+	import image from '../assets/aia.jpeg';
 	import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 
-	let URL = null;
-	let frame;
 
-	const onSelect = (url) => {
-		URL = url;
-		console.log(URL);
+	const sipAddress = $page.url.searchParams.get('sipAddress');
+	const call = (url) => {
+		window.location.href= `sip:${sipAddress}`
 	};
 
-	const includeVideoBackground = $page.url.searchParams.get('includeVideoBackground') === 'yes';
 </script>
 
 <div class="app is-flex is-flex-direction-column">
 	<div
 		class="bg-image"
-		style={`background: ${
-			includeVideoBackground ? 'none' : `#fff url(${image}) center top/cover no-repeat;`
-		}`}
+		style="background: #fff url(https://www.panaynews.net/wp-content/uploads/2021/08/aia.jpg) center center/cover no-repeat"
 	>
-		{#if includeVideoBackground}
-			<video class="video-background" autoplay loop muted playsinline>
-				<source src={video} />
-			</video>
-		{/if}
 	</div>
 	<nav
 		class="navbar is-flex is-align-items-center is-translucent-black pl-4 is-transparent pt-4 pb-2"
@@ -46,7 +26,7 @@
 	>
 		<div class="navbar-brand">
 			<figure
-				class="image is-128x128 mr-4 logo"
+				class="image is-96x96 mr-4 logo"
 				on:click={() => {
 					URL = null;
 				}}
@@ -55,8 +35,8 @@
 			</figure>
 		</div>
 		<div class="navbar-item is-flex is-flex-direction-column  is-align-items-start">
-			<p class=" m-0 title is-4 has-text-white">General Services Administration</p>
-			<p class=" mt-2  is-size-5 has-text-white">Workplace Innovation Lab</p>
+			<p class=" m-0 title is-4 has-text-white">AIA Insurance</p>
+			<p class=" mt-2  is-size-5 has-text-white">Healthier, Longer, Better Lives</p>
 		</div>
 
 		<div id="navbarBasicExample" class="navbar-menu">
@@ -66,7 +46,7 @@
 
 			<div class="navbar-end is-flex is-flex-direction-column">
 				<div class="columns navbar-item p-0">
-					<div class="column has-text-white p-1" style="width: 9rem">New York</div>
+					<div class="column has-text-white p-1" style="width: 9rem">Singapore</div>
 					<div class="column has-text-white p-1">75°</div>
 				</div>
 				<div class="columns navbar-item p-0">
@@ -75,104 +55,8 @@
 			</div>
 		</div>
 	</nav>
-	<div class="contnet" style="width: 100%; height: 100%;">
-		{#if URL === null}
-			<div class="columns cards" style="padding: 5rem 4rem 2rem 4rem">
-				{#each applications as { imgUrl, title, subtitle, avatarUrl, description, url }, i}
-					<div class="column">
-						<BoopAction boopParams={{ scale: 1.1, timing: 200 }}>
-							<Card {imgUrl} {title} {subtitle} {avatarUrl} {description} {url} {onSelect} />
-						</BoopAction>
-					</div>
-				{/each}
-			</div>
-		{:else if URL === 'NO-URL'}
-			<div class="QA">
-				<div
-					class="has-background-grey-lighter close-button"
-					on:click={() => {
-						URL = null;
-					}}
-				>
-					<span class="icon has-text-link-dark">
-						<i class="mdi mdi-48px mdi-arrow-left-bold" />
-					</span>
-					<span class="is-size-5 has-text-weight-medium"> Return to Main Menu </span>
-				</div>
-				<div class="box is-translucent-black" style="border-radius: 0;">
-					{#each listItems as { question, answer }, i}
-						<QA {question} {answer} />
-					{/each}
-					<QA />
-				</div>
-			</div>
-		{/if}
-		{#if URL === null}
-			<div class="customFooter">
-				<div
-					class="box is-flex is-translucent-black mb-0"
-					style="height: 15rem; margin-left: 4rem;"
-				>
-					<figure class="image">
-						<img src={innovation} style="width: 22rem; height: 12rem;" />
-					</figure>
-					<p
-						class="has-text-white  is-size-5"
-						style="width: 50rem; margin-left: 3rem; text-indent: 1rem; line-height: 2rem;"
-					>
-						<span class="subtitle has-text-weight-bold	 is-size-4 has-text-white"
-							>The Workplace Innovation Lab
-						</span> (WIL) is the pilot project of GSA’s federal coworking concept. Located at GSA headquarters
-						in Washington, DC, the WIL is a proving ground for federal agencies to test out innovative
-						environments in workplace furnishings and audio visual & technology solutions. The 25,000
-						SF space is available for periods ranging from a single hour to weeks. Federal employees
-						are able to reserve workspaces and collaborative areas online within six distinct neighborhoods.
-					</p>
-				</div>
-				<div class="contact has-text-weight-medium has-text-light">
-					<div class="box is-translucent-black mb-0" style="margin-left: 4rem;">
-						<p class="subtitle has-text-white mb-4 is-flex is-justify-content-center">
-							Room Metrics
-						</p>
-						<div class="columns">
-							<div class="column">
-								<SensorData title="Air Quality" icon="smoke" value="3" color="danger" />
-								<SensorData title="Humidity" icon="water-percent" value="20%" color="warning" />
-							</div>
-							<div class="column">
-								<SensorData title="Noise" icon="waveform" value="30 dBA" color="success" />
-								<SensorData
-									title="Occupancy"
-									icon="account-group"
-									value="21 / 45"
-									color="success"
-								/>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		{/if}
-
-		{#each applications as { url }}
-			{#if url !== 'NO-URL'}
-				<div class="iframe" class:hide={url !== URL}>
-					<div
-						class="has-background-grey-lighter close-button"
-						on:click={() => {
-							URL = null;
-							frame.src = url;
-						}}
-					>
-						<span class="icon has-text-link-dark">
-							<i class="mdi mdi-48px mdi-arrow-left-bold" />
-						</span>
-						<span class="is-size-5 has-text-weight-medium"> Return to Main Menu </span>
-					</div>
-					<iframe src={url} bind:this={frame} />
-				</div>
-			{/if}
-		{/each}
+	<div class="contnet is-flex is-justify-content-flex-end is-align-items-flex-end" style="width: 100%; height: 100%;">
+		<button class="button is-large is-rounded is-size-2 is-success"  style="margin: 5rem !important; width: 15rem;" on:click={call}>Call</button>
 	</div>
 </div>
 
@@ -187,7 +71,7 @@
 	}
 	.logo {
 		cursor: pointer;
-		height: 90px;
+		height: 110px;
 	}
 
 	.QA {
