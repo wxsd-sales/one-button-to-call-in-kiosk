@@ -17,7 +17,7 @@ const config = {
 			fallback: 'index.html'
 		}),
 		paths: {
- 			base: dev ? "" : "/kiosk-iframes",
+ 			base: dev ? "" : "/one-button-to-call-in-kiosk",
  		},
 	}
 };
